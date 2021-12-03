@@ -1,6 +1,7 @@
 # MiSyMo
 A Minimal System Monitor for the command-line written in Python
 
+[![asciicast](https://asciinema.org/a/45cAx7ANMymeQi6WFSsRBn86X.svg)](https://asciinema.org/a/45cAx7ANMymeQi6WFSsRBn86X)
 
 
 ## Example usage
