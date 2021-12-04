@@ -7,7 +7,7 @@ from util import adaptive_precision
 to_Mbps = 1000*1000//8
 
 
-class NetworkThroughput(MonitoringModule):
+class Network(MonitoringModule):
     def __init__(self):
         network_data = psutil.net_io_counters()
         self.old_time = time.perf_counter()

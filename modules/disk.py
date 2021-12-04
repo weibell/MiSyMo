@@ -7,7 +7,7 @@ from util import adaptive_precision
 to_MBps = 1000*1000
 
 
-class DiskActivity(MonitoringModule):
+class Disk(MonitoringModule):
     def __init__(self):
         disk_data = psutil.disk_io_counters()
         self.old_time = time.perf_counter()

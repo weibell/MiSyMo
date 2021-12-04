@@ -1,5 +1,5 @@
 # MiSyMo
-A Minimal System Monitor for the command-line written in Python
+A Minimalistic System Monitor for the command-line written in Python
 
 [![asciicast](https://asciinema.org/a/45cAx7ANMymeQi6WFSsRBn86X.svg)](https://asciinema.org/a/45cAx7ANMymeQi6WFSsRBn86X)
 
@@ -31,9 +31,9 @@ usage: misymo.py [-h] [-c] [-i {[0.1,30]}]
 
 optional arguments:
   -h, --help            show this help message and exit
-  -c, --continuous      do not re-use the same line as output
+  -c, --continuous      do not re-use the same line as output (default: disabled)
   -i {[0.1,30]}, --interval {[0.1,30]}
-                        update interval in seconds, between 0.1 and 30
+                        update interval in seconds, between 0.1 and 30 (default: 1.0)
 ```
 
 ## Additional information

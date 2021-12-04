@@ -3,8 +3,8 @@ import signal
 import time
 
 from modules.cpu import CPU
-from modules.disk_activity import DiskActivity
-from modules.network_throughput import NetworkThroughput
+from modules.disk import Disk
+from modules.network import Network
 from modules.ram import RAM
 from util import print_line
 
@@ -13,7 +13,7 @@ CONTINUOUS_OUTPUT = None
 UPDATE_INTERVAL = None
 
 
-class SimpleSystemMonitor:
+class MinimalisticSystemMonitor:
     def __init__(self, modules):
         self.modules = modules
 
@@ -42,9 +42,9 @@ def parse_arguments():
     global UPDATE_INTERVAL
     parser = argparse.ArgumentParser()
     parser.add_argument("-c", "--continuous", action="store_true",
-                        help="do not re-use the same line as output")
+                        help="do not re-use the same line as output (default: disabled)")
     parser.add_argument("-i", "--interval", type=float, choices=[Range(0.1, 30)], default=1.0,
-                        help="update interval in seconds, between 0.1 and 30")
+                        help="update interval in seconds, between 0.1 and 30 (default: 1.0)")
     args = parser.parse_args()
     CONTINUOUS_OUTPUT = args.continuous
     UPDATE_INTERVAL = args.interval
@@ -57,10 +57,10 @@ def main():
     modules = [
         CPU(),
         RAM(),
-        NetworkThroughput(),
-        DiskActivity(),
+        Network(),
+        Disk(),
     ]
-    monitor = SimpleSystemMonitor(modules)
+    monitor = MinimalisticSystemMonitor(modules)
     while True:
         monitor.tick()
         print_line(monitor.current_values(), continuous=CONTINUOUS_OUTPUT)
