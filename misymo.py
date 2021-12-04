@@ -1,5 +1,5 @@
 import argparse
-import sys
+import signal
 import time
 
 from modules.cpu import CPU
@@ -51,6 +51,7 @@ def parse_arguments():
 
 
 def main():
+    signal.signal(signal.SIGINT, lambda *_: exit(1))
     parse_arguments()
 
     modules = [
